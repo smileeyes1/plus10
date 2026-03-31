@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>مغامرة الجمع – الصف الأول</title>
+<title>🦸‍♂️ أسطورة أبطال الأرقام</title>
 
 <style>
 body {
@@ -13,7 +13,6 @@ body {
   text-align: center;
 }
 
-/* إطار اللعبة */
 #game-container {
   width: 480px;
   margin: 30px auto;
@@ -23,7 +22,6 @@ body {
   box-shadow: 0 0 25px #00eaff;
 }
 
-/* شاشة البداية */
 #start-screen {
   position: fixed;
   inset: 0;
@@ -36,22 +34,21 @@ body {
 }
 
 #start-screen h1 {
-  font-size: 55px;
+  font-size: 50px;
   margin-bottom: 30px;
   text-shadow: 0 0 20px #00eaff;
 }
 
 #start-btn {
   padding: 18px 45px;
-  font-size: 30px;
+  font-size: 28px;
   border: none;
   border-radius: 15px;
   background: #00eaff;
-  color: #000;
   cursor: pointer;
 }
 
-/* ====== البطل ====== */
+/* البطل */
 #hero {
   width: 160px;
   height: 230px;
@@ -66,7 +63,6 @@ body {
   background: #ffddb0;
   border-radius: 50%;
   margin: auto;
-  border: 5px solid #c79a53;
 }
 
 #hero .helmet {
@@ -77,19 +73,6 @@ body {
   position: absolute;
   top: -10px;
   left: 35px;
-  border: 4px solid #222;
-}
-
-#hero .helmet::after {
-  content: "";
-  width: 22px;
-  height: 45px;
-  background: red;
-  position: absolute;
-  top: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 10px;
 }
 
 #hero .body {
@@ -99,83 +82,39 @@ body {
   margin: auto;
   margin-top: -5px;
   border-radius: 12px;
-  border: 5px solid #0a3a74;
-}
-
-#hero .armor {
-  width: 55px;
-  height: 65px;
-  background: #d4d4d4;
-  margin: auto;
-  margin-top: -95px;
-  border-radius: 10px;
-  border: 4px solid #aaa;
-}
-
-#hero .sword {
-  width: 14px;
-  height: 110px;
-  background: silver;
-  position: absolute;
-  right: -30px;
-  top: 60px;
-  border-radius: 7px;
-  border: 2px solid #ccc;
 }
 
 @keyframes hero-float {
-  0% { transform: translateY(0);}
-  50% { transform: translateY(-10px);}
-  100% { transform: translateY(0);}
+  50% { transform: translateY(-10px); }
 }
 
-/* ====== الوحش ====== */
 #monster-box {
   background: #1f4068;
   padding: 20px;
-  margin-top: 15px;
   border-radius: 20px;
-  box-shadow: 0 0 15px #00eaff;
+  margin-top: 15px;
 }
 
 #monster {
-  font-size: 110px;
-  transition: 0.2s;
+  font-size: 100px;
 }
 
-.monster-hit {
-  animation: monster-shake 0.3s;
-}
-
-@keyframes monster-shake {
-  0% { transform: translateX(0);}
-  25% { transform: translateX(-10px);}
-  50% { transform: translateX(10px);}
-  75% { transform: translateX(-10px);}
-  100% { transform: translateX(0);}
-}
-
-/* شريط الطاقة */
 #monster-hp {
   width: 90%;
   height: 25px;
   background: #333;
-  margin: 10px auto;
   border-radius: 10px;
-  overflow: hidden;
+  margin: 10px auto;
 }
 
 #monster-hp-inner {
-  width: 100%;
   height: 100%;
   background: #29ff74;
-  transition: 0.4s;
 }
 
 input {
   padding: 12px;
   font-size: 26px;
-  border: none;
   border-radius: 10px;
   width: 200px;
   text-align: center;
@@ -183,65 +122,44 @@ input {
 
 button {
   padding: 15px 35px;
-  font-size: 28px;
-  margin-top: 15px;
+  font-size: 26px;
   background: #00eaff;
-  border: none;
   border-radius: 15px;
   cursor: pointer;
-}
-
-/* المدرسة */
-#footer {
-  margin-top: 25px;
-  font-size: 20px;
-  color: #90e0ef;
 }
 </style>
 </head>
 
 <body>
 
-<!-- شاشة البداية -->
 <div id="start-screen">
-  <h1>✨ لعبة الجمع ✨</h1>
-  <button id="start-btn">ابدأ اللعب</button>
+  <h1>🦸‍♂️ أسطورة أبطال الأرقام</h1>
+  <button id="start-btn">ابدأ المغامرة</button>
 </div>
 
 <div id="game-container">
 
-<!-- البطل -->
 <div id="hero">
   <div class="head"></div>
   <div class="helmet"></div>
   <div class="body"></div>
-  <div class="armor"></div>
-  <div class="sword"></div>
 </div>
 
-<!-- المستوى -->
-<div style="font-size:30px; color:#00eaff;">
-  مستواك: <span id="level">١</span>
+<div style="font-size:28px;color:#00eaff;">
+  المستوى: <span id="level">١</span>
 </div>
 
-<!-- النقاط -->
-<div style="font-size:26px; margin-top:10px; color:#00eaff;">
-  نقاطك: <span id="score">٠</span>
+<div style="font-size:24px;">
+  النقاط: <span id="score">٠</span>
 </div>
 
-<!-- الوحش -->
 <div id="monster-box">
   <div id="monster">👹</div>
   <div id="monster-hp"><div id="monster-hp-inner"></div></div>
-  <div style="font-size: 22px;">
-    طاقة الوحش: <span id="hp">١٠٠</span>%
-  </div>
+  طاقة الوحش: <span id="hp">١٠٠</span>%
 </div>
 
-<!-- السؤال -->
-<div id="question" style="font-size:32px; margin-top:20px;">
-  كم يساوي ١ + ١ ؟
-</div>
+<div id="question" style="font-size:30px;margin-top:20px;"></div>
 
 <input type="number" id="answer" placeholder="اكتب الجواب">
 <br>
@@ -249,130 +167,68 @@ button {
 
 </div>
 
-<!-- المدرسة -->
-<div id="footer">
-  👨‍🏫 المعلم: محمد وجيه — 🏫 مدرسة عاطوف المختلطة
-</div>
-
 <script>
-/* شاشة البداية */
-document.getElementById("start-btn").onclick = function() {
-  document.getElementById("start-screen").style.display = "none";
-  newQuestion();
-  updateMonster();
-};
-
-/* صوت */
-function playSound(freq, type="sine") {
-  const ctx = new AudioContext();
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-  osc.type = type;
-  osc.frequency.value = freq;
-  osc.connect(gain);
-  gain.connect(ctx.destination);
-  osc.start();
-  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
-  osc.stop(ctx.currentTime + 0.3);
-}
-
-/* النظام */
 let level = 1;
 let score = 0;
-let x = 1;
-let y = 1;
+let x = 1, y = 1;
+let monsterHP = 100, monsterMaxHP = 100;
 
-/* الوحوش */
-const monsters = ["👹","🐲","👾","🦂","🐉","👻","🦁","🐺"];
-let currentMonster = 0;
+document.getElementById("start-btn").onclick = () => {
+  document.getElementById("start-screen").style.display = "none";
+  newQuestion();
+  updateHP();
+};
 
-/* طاقة الوحش */
-let monsterMaxHP = 100;
-let monsterHP = monsterMaxHP;
+document.getElementById("answer").addEventListener("keydown", e => {
+  if (e.key === "Enter") attack();
+});
 
-function updateMonster() {
-  currentMonster = (level - 1) % monsters.length;
-  document.getElementById("monster").innerHTML = monsters[currentMonster];
-  monsterMaxHP = 100 + (level - 1) * 20;
-  monsterHP = monsterMaxHP;
-  updateHPBar();
-}
-
-/* شريط الطاقة */
-function updateHPBar() {
-  let p = monsterHP / monsterMaxHP * 100;
-  document.getElementById("hp").innerHTML = toArabic(Math.round(p));
-  document.getElementById("monster-hp-inner").style.width = p + "%";
-}
-
-/* تحويل للأرقام العربية */
 function toArabic(n) {
   return n.toString().replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
 }
 
-/* سؤال جديد — جمع ≤ ١٠ */
 function newQuestion() {
   x = Math.floor(Math.random() * 6) + 1;
   y = Math.floor(Math.random() * (10 - x + 1));
-
   document.getElementById("question").innerHTML =
-    "كم يساوي " + toArabic(x) + " + " + toArabic(y) + " ؟";
+    `كم يساوي ${toArabic(x)} + ${toArabic(y)} ؟`;
 }
 
-/* الهجوم */
+function updateHP() {
+  let p = (monsterHP / monsterMaxHP) * 100;
+  document.getElementById("monster-hp-inner").style.width = p + "%";
+  document.getElementById("hp").innerHTML = toArabic(Math.round(p));
+}
+
 function attack() {
-  let ans = parseInt(document.getElementById("answer").value);
+  let ans = parseInt(answer.value);
+  if (isNaN(ans)) return;
 
-  if (ans === x + y) successfulHit();
-  else failedHit();
+  if (ans === x + y) {
+    monsterHP -= 20;
+    score += 10;
+    if (monsterHP <= 0) winLevel();
+    else newQuestion();
+  } else {
+    monsterHP += 10;
+    if (monsterHP > monsterMaxHP) monsterHP = monsterMaxHP;
+    score -= 2;
+    if (score < 0) score = 0;
+  }
 
-  setTimeout(() => {
-    document.getElementById("answer").value = "";
-  }, 1000);
-}
-
-/* نجاح ✅ */
-function successfulHit() {
-  playSound(500);
-  document.getElementById("monster").classList.add("monster-hit");
-  setTimeout(() => {
-    document.getElementById("monster").classList.remove("monster-hit");
-  }, 300);
-
-  monsterHP -= 20;
-  if (monsterHP < 0) monsterHP = 0;
-
-  updateHPBar();
-  score += 10;
-  updateScore();
-
-  if (monsterHP === 0) winLevel();
-  else newQuestion();
-}
-
-/* فشل ❌ */
-function failedHit() {
-  playSound(200);
-  monsterHP += 10;
-  if (monsterHP > monsterMaxHP) monsterHP = monsterMaxHP;
-  updateHPBar();
-  score -= 5;
-  if (score < 0) score = 0;
-  updateScore();
-}
-
-/* الفوز */
-function winLevel() {
-  playSound(800);
-  level++;
-  document.getElementById("level").innerHTML = toArabic(level);
-  updateMonster();
-  newQuestion();
-}
-
-/* تحديث النقاط */
-function updateScore() {
   document.getElementById("score").innerHTML = toArabic(score);
+  updateHP();
+  answer.value = "";
+}
+
+function winLevel() {
+  alert("🌟 أحسنت! أنت بطل الأرقام 🌟");
+  level++;
+  monsterMaxHP += 15;
+  monsterHP = monsterMaxHP;
+  document.getElementById("level").innerHTML = toArabic(level);
+  updateHP();
+  newQuestion();
 }
 </script>
 
